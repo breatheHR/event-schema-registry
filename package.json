@@ -1,0 +1,16 @@
+{
+  "name": "@sparkle/schemas",
+  "version": "0.1.0",
+  "description": "Event schema registry for Project Sparkle",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": ["events/**/*.json", "VERSION"],
+  "scripts": {
+    "check-breaking": "node scripts/check-breaking.js"
+  },
+  "devDependencies": {
+    "json-schema-diff": "^0.20.0"
+  }
+}
