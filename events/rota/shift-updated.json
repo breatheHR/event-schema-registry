@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift-updated.json",
+  "title": "sparkle.shift.updated",
+  "description": "Emitted when fields on a shift are modified. Carries a changes map for audit trail compliance.",
+  "type": "object",
+  "required": ["shiftId", "rotaId", "changes", "updatedAt"],
+  "additionalProperties": false,
+  "properties": {
+    "shiftId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "rotaId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "changes": {
+      "type": "object",
+      "description": "Map of field name to { from, to } capturing every changed value. Supports ERA 2025 audit trail requirements.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["from", "to"],
+        "additionalProperties": false,
+        "properties": {
+          "from": {},
+          "to": {}
+        }
+      }
+    },
+    "updatedBy": {
+      "type": ["string", "null"],
+      "format": "uuid"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

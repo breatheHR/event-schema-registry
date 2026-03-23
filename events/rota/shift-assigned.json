@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift-assigned.json",
+  "title": "sparkle.shift.assigned",
+  "description": "Emitted when an employee is assigned to a shift.",
+  "type": "object",
+  "required": ["shiftId", "rotaId", "siteId", "employeeId", "roleId", "startAt", "endAt", "assignedBy", "assignedAt"],
+  "additionalProperties": false,
+  "properties": {
+    "shiftId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "rotaId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "siteId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "roleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "startAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "assignedBy": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "assignedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

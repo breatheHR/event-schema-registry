@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/clock-in-late.json",
+  "title": "notification.clock-in-late",
+  "description": "Published after a clock-in where the employee is late (actual clock-in time > scheduled shift start + tolerance). Recipient: the employee's line manager.",
+  "type": "object",
+  "required": ["recipientId", "employeeName", "scheduledStart", "actualClockIn", "latenessMinutes", "locationName", "notificationType", "priority"],
+  "additionalProperties": false,
+  "properties": {
+    "recipientId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "employeeName": {
+      "type": "string"
+    },
+    "scheduledStart": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actualClockIn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "latenessMinutes": {
+      "type": "number",
+      "minimum": 1
+    },
+    "locationName": {
+      "type": "string"
+    },
+    "notificationType": {
+      "type": "string",
+      "enum": ["push", "email", "in-app"]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/clock-in-reminder.json",
+  "title": "notification.clock-in-reminder",
+  "description": "Scheduled reminder sent to an employee approximately 30 minutes before their shift starts.",
+  "type": "object",
+  "required": ["recipientId", "employeeName", "shiftDate", "startTime", "roleName", "locationName", "notificationType", "priority"],
+  "additionalProperties": false,
+  "properties": {
+    "recipientId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "employeeName": {
+      "type": "string"
+    },
+    "shiftDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "roleName": {
+      "type": "string"
+    },
+    "locationName": {
+      "type": "string"
+    },
+    "notificationType": {
+      "type": "string",
+      "enum": ["push", "email", "in-app"]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high"]
+    }
+  }
+}

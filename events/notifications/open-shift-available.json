@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/open-shift-available.json",
+  "title": "notification.open-shift-available",
+  "description": "Published after a shift becomes unassigned (open) or is newly created as open. Recipients: all employees with the matching roleId at the same location.",
+  "type": "object",
+  "required": ["recipientIds", "roleName", "shiftDate", "startTime", "endTime", "locationName", "notificationType", "priority"],
+  "additionalProperties": false,
+  "properties": {
+    "recipientIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "roleName": {
+      "type": "string"
+    },
+    "shiftDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "locationName": {
+      "type": "string"
+    },
+    "notificationType": {
+      "type": "string",
+      "enum": ["push", "email", "in-app"]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high"]
+    }
+  }
+}

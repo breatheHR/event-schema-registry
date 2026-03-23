@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/rota-published.json",
+  "title": "notification.rota-published",
+  "description": "Published after a rota is made visible to employees. Recipients: all employees with assigned shifts in the rota.",
+  "type": "object",
+  "required": ["recipientIds", "locationName", "departmentName", "weekStart", "weekEnd", "publishedBy", "notificationType", "priority"],
+  "additionalProperties": false,
+  "properties": {
+    "recipientIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "minItems": 1
+    },
+    "locationName": {
+      "type": "string"
+    },
+    "departmentName": {
+      "type": "string"
+    },
+    "weekStart": {
+      "type": "string",
+      "format": "date"
+    },
+    "weekEnd": {
+      "type": "string",
+      "format": "date"
+    },
+    "publishedBy": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "notificationType": {
+      "type": "string",
+      "enum": ["push", "email", "in-app"]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high"]
+    }
+  }
+}

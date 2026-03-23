@@ -10,7 +10,25 @@ Event schema registry for Project Sparkle. Ships JSON Schema (draft-07) files as
 
 ```
 events/
-  todos/
+  rota/                        # Domain events (source: sparkle.rota)
+    shift-created.json
+    shift-updated.json
+    shift-cancelled.json
+    shift-assigned.json
+    shift-unassigned.json
+    rota-published.json
+    shift-swapped.json
+    shift-dropped.json
+  notifications/               # Notification events (source: sparkle.notifications)
+    rota-published.json
+    shift-changed.json
+    shift-cancelled.json
+    swap-requested.json
+    swap-approved.json
+    open-shift-available.json
+    clock-in-late.json
+    clock-in-reminder.json
+  todos/                       # Todo events (legacy)
     todo.created.json
     todo.completed.json
 ```

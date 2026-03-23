@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift-swapped.json",
+  "title": "sparkle.shift.swapped",
+  "description": "Emitted when a manager approves a shift trade between two employees.",
+  "type": "object",
+  "required": ["proposalId", "shift1Id", "employee1Id", "shift2Id", "employee2Id", "approvedBy", "approvedAt"],
+  "additionalProperties": false,
+  "properties": {
+    "proposalId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the ShiftTradeProposal that was approved."
+    },
+    "shift1Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the shift offered by the proposer."
+    },
+    "employee1Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the proposer (original owner of shift1)."
+    },
+    "shift2Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the shift offered in return by the responder."
+    },
+    "employee2Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the responder (original owner of shift2)."
+    },
+    "approvedBy": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "approvedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
