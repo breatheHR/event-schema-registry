@@ -1,6 +1,6 @@
 {
-  "name": "@sparkle/schemas",
-  "version": "0.2.0",
+  "name": "@breathehr/event-schemas",
+  "version": "0.2.1",
   "description": "Event schema registry for Project Sparkle",
   "private": false,
   "publishConfig": {
