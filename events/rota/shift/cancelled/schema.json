@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift/cancelled/schema.json",
+  "title": "sparkle.rota.shift.cancelled",
+  "description": "Emitted when a shift is soft-deleted (status set to cancelled).",
+  "type": "object",
+  "required": [
+    "shiftId",
+    "rotaId",
+    "siteId",
+    "employeeId",
+    "cancelledBy",
+    "cancelledAt",
+    "startAt",
+    "endAt"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "shiftId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "rotaId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "siteId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "employeeId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uuid",
+      "description": "UUID of the assigned employee at cancellation time, or null if the shift was open."
+    },
+    "cancelledBy": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "cancelledAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "startAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

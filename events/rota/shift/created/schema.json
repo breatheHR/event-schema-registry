@@ -1,10 +1,20 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift-created.json",
-  "title": "sparkle.shift.created",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift/created/schema.json",
+  "title": "sparkle.rota.shift.created",
   "description": "Emitted when a new shift is added to a rota.",
   "type": "object",
-  "required": ["shiftId", "rotaId", "siteId", "roleId", "startAt", "endAt", "templateId", "status", "createdAt"],
+  "required": [
+    "shiftId",
+    "rotaId",
+    "siteId",
+    "roleId",
+    "startAt",
+    "endAt",
+    "templateId",
+    "status",
+    "createdAt"
+  ],
   "additionalProperties": false,
   "properties": {
     "shiftId": {
@@ -33,21 +43,37 @@
       "format": "date-time"
     },
     "templateId": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uuid",
       "description": "UUID of the shift template used, or null for an ad-hoc shift."
     },
     "status": {
       "type": "string",
-      "enum": ["draft", "published", "open", "assigned", "completed", "cancelled"],
+      "enum": [
+        "draft",
+        "published",
+        "open",
+        "assigned",
+        "completed",
+        "cancelled"
+      ],
       "description": "Assignment status at time of creation."
     },
     "assignedUserId": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uuid"
     },
     "createdBy": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uuid"
     },
     "createdAt": {

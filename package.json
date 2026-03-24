@@ -1,6 +1,6 @@
 {
   "name": "@breathehr/event-schemas",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Event schema registry for Project Sparkle",
   "private": false,
   "publishConfig": {
@@ -11,6 +11,6 @@
     "check-breaking": "node scripts/check-breaking.js"
   },
   "devDependencies": {
-    "json-schema-diff": "^0.20.0"
+    "json-schema-diff": "^1.0.0"
   }
 }
