@@ -11,6 +11,6 @@
     "check-breaking": "node scripts/check-breaking.js"
   },
   "devDependencies": {
-    "json-schema-diff": "^0.20.0"
+    "json-schema-diff": "^1.0.0"
   }
 }
