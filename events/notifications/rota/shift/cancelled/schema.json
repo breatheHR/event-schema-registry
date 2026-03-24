@@ -1,10 +1,20 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/shift-cancelled.json",
-  "title": "notification.shift-cancelled",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/rota/shift/cancelled/schema.json",
+  "title": "notification.rota.shift.cancelled",
   "description": "Published after a published shift is cancelled. Recipient: the assignedUserId at the time of cancellation (if not null).",
   "type": "object",
-  "required": ["recipientId", "employeeName", "shiftDate", "startTime", "endTime", "roleName", "cancelledBy", "notificationType", "priority"],
+  "required": [
+    "recipientId",
+    "employeeName",
+    "shiftDate",
+    "startTime",
+    "endTime",
+    "roleName",
+    "cancelledBy",
+    "notificationType",
+    "priority"
+  ],
   "additionalProperties": false,
   "properties": {
     "recipientId": {
@@ -35,11 +45,19 @@
     },
     "notificationType": {
       "type": "string",
-      "enum": ["push", "email", "in-app"]
+      "enum": [
+        "push",
+        "email",
+        "in-app"
+      ]
     },
     "priority": {
       "type": "string",
-      "enum": ["low", "normal", "high"]
+      "enum": [
+        "low",
+        "normal",
+        "high"
+      ]
     }
   }
 }

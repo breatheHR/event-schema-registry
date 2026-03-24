@@ -1,10 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/swap-requested.json",
-  "title": "notification.swap-requested",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/rota/swap/requested/schema.json",
+  "title": "notification.rota.swap.requested",
   "description": "Published after an employee submits a shift swap (trade) request. Recipient: the manager who can approve the swap.",
   "type": "object",
-  "required": ["recipientId", "proposerName", "proposerShiftDate", "proposerShiftTime", "notificationType", "priority"],
+  "required": [
+    "recipientId",
+    "proposerName",
+    "proposerShiftDate",
+    "proposerShiftTime",
+    "notificationType",
+    "priority"
+  ],
   "additionalProperties": false,
   "properties": {
     "recipientId": {
@@ -23,21 +30,38 @@
       "format": "date-time"
     },
     "responderName": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "responderShiftDate": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "responderShiftTime": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "notificationType": {
       "type": "string",
-      "enum": ["push", "email", "in-app"]
+      "enum": [
+        "push",
+        "email",
+        "in-app"
+      ]
     },
     "priority": {
       "type": "string",
-      "enum": ["low", "normal", "high"]
+      "enum": [
+        "low",
+        "normal",
+        "high"
+      ]
     }
   }
 }

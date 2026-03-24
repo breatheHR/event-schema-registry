@@ -1,10 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift-dropped.json",
-  "title": "sparkle.shift.dropped",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift/dropped/schema.json",
+  "title": "sparkle.rota.shift.dropped",
   "description": "Emitted when a manager approves a shift drop, reassigning it to a volunteer.",
   "type": "object",
-  "required": ["proposalId", "shiftId", "originalEmployeeId", "approvedBy", "approvedAt"],
+  "required": [
+    "proposalId",
+    "shiftId",
+    "originalEmployeeId",
+    "approvedBy",
+    "approvedAt"
+  ],
   "additionalProperties": false,
   "properties": {
     "proposalId": {
@@ -22,7 +28,10 @@
       "description": "UUID of the employee who offered to drop the shift."
     },
     "pickupEmployeeId": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uuid",
       "description": "UUID of the employee who picked up the shift, or null if unassigned."
     },

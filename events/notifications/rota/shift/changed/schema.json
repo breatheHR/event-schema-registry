@@ -1,10 +1,21 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/shift-changed.json",
-  "title": "notification.shift-changed",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/rota/shift/changed/schema.json",
+  "title": "notification.rota.shift.changed",
   "description": "Published after a published shift is updated (time, role, or assignment change). Recipient: the assignedUserId of the affected shift.",
   "type": "object",
-  "required": ["recipientId", "employeeName", "shiftDate", "oldStartTime", "newStartTime", "oldEndTime", "newEndTime", "changedBy", "notificationType", "priority"],
+  "required": [
+    "recipientId",
+    "employeeName",
+    "shiftDate",
+    "oldStartTime",
+    "newStartTime",
+    "oldEndTime",
+    "newEndTime",
+    "changedBy",
+    "notificationType",
+    "priority"
+  ],
   "additionalProperties": false,
   "properties": {
     "recipientId": {
@@ -40,11 +51,19 @@
     },
     "notificationType": {
       "type": "string",
-      "enum": ["push", "email", "in-app"]
+      "enum": [
+        "push",
+        "email",
+        "in-app"
+      ]
     },
     "priority": {
       "type": "string",
-      "enum": ["low", "normal", "high"]
+      "enum": [
+        "low",
+        "normal",
+        "high"
+      ]
     }
   }
 }

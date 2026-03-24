@@ -1,10 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/clock-in-late.json",
-  "title": "notification.clock-in-late",
+  "$id": "https://github.com/breatheHR/event-schema-registry/events/notifications/rota/clock/in-late/schema.json",
+  "title": "notification.rota.clock.in-late",
   "description": "Published after a clock-in where the employee is late (actual clock-in time > scheduled shift start + tolerance). Recipient: the employee's line manager.",
   "type": "object",
-  "required": ["recipientId", "employeeName", "scheduledStart", "actualClockIn", "latenessMinutes", "locationName", "notificationType", "priority"],
+  "required": [
+    "recipientId",
+    "employeeName",
+    "scheduledStart",
+    "actualClockIn",
+    "latenessMinutes",
+    "locationName",
+    "notificationType",
+    "priority"
+  ],
   "additionalProperties": false,
   "properties": {
     "recipientId": {
@@ -31,11 +40,19 @@
     },
     "notificationType": {
       "type": "string",
-      "enum": ["push", "email", "in-app"]
+      "enum": [
+        "push",
+        "email",
+        "in-app"
+      ]
     },
     "priority": {
       "type": "string",
-      "enum": ["low", "normal", "high"]
+      "enum": [
+        "low",
+        "normal",
+        "high"
+      ]
     }
   }
 }
