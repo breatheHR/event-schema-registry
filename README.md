@@ -1,7 +1,6 @@
 # event-schema-registry
 
-Event schema registry for Project Sparkle. Ships JSON Schema (draft-07) files as an npm package consumed by the NestJS API and other services.
-
+Event schema registry for Breathe HR. Cross-stack definition of what an event should look like. 
 ## Package
 
 - **npm**: `@breathehr/event-schemas` (GitHub Packages)
