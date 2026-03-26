@@ -1,17 +1,21 @@
 # event-schema-registry
 
-Event schema registry for Breathe HR. Cross-stack definition of what an event should look like. 
-## Package
+Event schema registry for Breathe HR. Cross-stack, language-agnostic JSON Schema definitions for domain events.
+
+This repo is the **single source of truth** for event schemas. It ships raw JSON files only — consuming apps bring their own validation library.
+
+## Packages
 
 - **npm**: `@breathehr/event-schemas` (GitHub Packages)
+- **Ruby gem**: `event_schemas` (via git)
 
 ## Structure
 
-Each event schema lives at `events/<domain>/<path>/schema.json`. The directory path maps directly to the event's dot-delimited name, enabling natural namespacing at any depth.
+Each event schema lives at `events/<domain>/<path>/schema.json`. The directory path maps directly to the event's dot-delimited name.
 
 ```
 events/
-  rota/                                          # Domain events (source: sparkle.rota)
+  rota/                                          # Domain events (source: breathe.rota)
     published/schema.json                        # rota.published
     shift/
       created/schema.json                        # rota.shift.created
@@ -34,6 +38,67 @@ events/
       clock/
         in-late/schema.json                      # notification.rota.clock.in-late
         in-reminder/schema.json                  # notification.rota.clock.in-reminder
+```
+
+## Usage
+
+### Node / TypeScript
+
+Install the package:
+
+```bash
+npm install @breathehr/event-schemas
+```
+
+Load schemas directly as JSON and validate with the library of your choice (e.g. AJV):
+
+```typescript
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
+
+// Schemas are raw JSON files — require them by path
+const shiftCreatedSchema = require("@breathehr/event-schemas/events/rota/shift/created/schema.json");
+
+const ajv = new Ajv({ strict: false });
+addFormats(ajv);
+
+const validate = ajv.compile(shiftCreatedSchema);
+
+if (!validate(payload)) {
+  console.error(validate.errors);
+}
+```
+
+### Rails / Ruby
+
+Add the gem to your Gemfile:
+
+```ruby
+gem "event_schemas", git: "https://github.com/breatheHR/event-schema-registry", branch: "main"
+```
+
+The gem provides helpers to load schemas by event name. Validate with the library of your choice (e.g. json_schemer):
+
+```ruby
+require "json_schemer"
+
+# Load the parsed schema hash
+schema_hash = EventSchemas.schema("breathe.rota.shift.created")
+schemer = JSONSchemer.schema(schema_hash)
+
+schemer.valid?(payload)
+# => true
+
+schemer.validate(payload).to_a
+# => []
+
+# Or resolve the file path directly
+EventSchemas.schema_path("breathe.rota.shift.created")
+# => "/path/to/gems/event_schemas-0.3.0/events/rota/shift/created/schema.json"
+
+# List all available event names
+EventSchemas.event_names
+# => ["breathe.notifications.rota.clock.in-late", "breathe.rota.shift.created", ...]
 ```
 
 ## Adding a new event schema

@@ -1,7 +1,7 @@
 {
   "name": "@breathehr/event-schemas",
   "version": "0.3.0",
-  "description": "Event schema registry for Project Sparkle",
+  "description": "Event schema registry for Breathe",
   "private": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift/dropped/schema.json",
-  "title": "sparkle.rota.shift.dropped",
+  "title": "breathe.rota.shift.dropped",
   "description": "Emitted when a manager approves a shift drop, reassigning it to a volunteer.",
   "type": "object",
   "required": [

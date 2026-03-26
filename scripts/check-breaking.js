@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Checks for breaking schema changes by diffing local schemas against
- * the currently published @sparkle/schemas package on GitHub Packages.
+ * the currently published @breathehr/event-schemas package on GitHub Packages.
  *
  * Exits non-zero if any breaking changes are detected.
  */
@@ -17,8 +17,8 @@ const EVENTS_DIR = path.join(__dirname, '..', 'events');
 async function getPublishedSchemas() {
   try {
     // Install the published version into a temp dir to compare
-    const tmpDir = fs.mkdtempSync('/tmp/sparkle-schemas-published-');
-    execSync(`npm pack @sparkle/schemas --pack-destination ${tmpDir}`, {
+    const tmpDir = fs.mkdtempSync('/tmp/breathe-schemas-published-');
+    execSync(`npm pack @breathehr/event-schemas --pack-destination ${tmpDir}`, {
       stdio: 'pipe',
       env: { ...process.env },
     });

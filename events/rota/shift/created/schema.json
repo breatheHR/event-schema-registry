@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift/created/schema.json",
-  "title": "sparkle.rota.shift.created",
+  "title": "breathe.rota.shift.created",
   "description": "Emitted when a new shift is added to a rota.",
   "type": "object",
   "required": [

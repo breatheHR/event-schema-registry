@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/published/schema.json",
-  "title": "sparkle.rota.published",
+  "title": "breathe.rota.published",
   "description": "Emitted when a manager publishes a draft rota, making it visible to employees.",
   "type": "object",
   "required": [

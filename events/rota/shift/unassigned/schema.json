@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/breatheHR/event-schema-registry/events/rota/shift/unassigned/schema.json",
-  "title": "sparkle.rota.shift.unassigned",
+  "title": "breathe.rota.shift.unassigned",
   "description": "Emitted when an employee is removed from a shift.",
   "type": "object",
   "required": [
